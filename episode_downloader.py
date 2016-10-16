@@ -16,7 +16,6 @@ import sys
 
 # from selenium.webdriver.common.keys import Keys
 
-
 def build_url(which_show, episode, quality):
     # show_words = which_show.split()
     # show_word_count = show_words.__len__()
@@ -24,7 +23,8 @@ def build_url(which_show, episode, quality):
     show = which_show.replace(' ', '%20')
     # print show
     # return "https://kat.cr/usearch/" + show.lower() + "%20" + episode.lower() + '%20' + quality + '/'
-    return "http://kickass.cd/search.php?q=" + show.lower() + "%20" + episode.lower() + '%20' + quality + '/'
+    # return "https://kickass.cd/search.php?q=" + show.lower() + "%20" + episode.lower() + '%20' + quality + '/'
+    return "https://kickass.cd/search.php?q=" + show.lower() + "+" + episode.lower() + '+' + quality + '/'
 
 def check_for_episode(url_after_search_query):
     driver = webdriver.Chrome()
@@ -34,8 +34,6 @@ def check_for_episode(url_after_search_query):
         driver.close()
         return False
     return True
-
-
 
 def open_downloaded_torrent_file(which_show, which_episode, what_quality):
     # print os.getcwd()
@@ -85,7 +83,7 @@ def __main__():
         which_episode = raw_input("Which season and episode? (Eg. S06E10) ")
         what_quality = raw_input("Enter quality (Eg. 1080p, HDTV, DVDrip) ")
         url_after_search_query = build_url(which_show, which_episode, what_quality)
-        # print url_after_search_query
+        print url_after_search_query
 
         print ("Has the episode arrived yet?\n1 Yeah\n2 No, it\'ll be out very very soon\n3 Oops, let me re-enter the information")
         print ("[Note: Make sure you've entered the right keywords]")
