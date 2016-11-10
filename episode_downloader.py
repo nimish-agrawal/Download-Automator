@@ -2,10 +2,7 @@
 
 __author__ = "Nimish"
 
-to_be_added = ['GUI', 'Download Quality', 'Case Menu', 'Movie or episode',\
-               'check availability of episode, etc.',\
-               'Add appropriate error messages'\
-               'OS functionalities and automation']
+to_be_added = ['GUI']
 
 ########################################################################################################################
 
